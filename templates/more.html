@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="demoapp" >
+<head lang="en">
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/bootstrap-min.css" %}" />
+
+    <!-- JS -->
+    <script src="{% static "js/bower_components/angular/angular.min.js" %}"></script>
+    <script src="{% static "js/angular-file-upload-shim.min.js" %}"></script>
+    <script src="{% static "js/angular-file-upload.min.js" %}"></script>
+    <script src="{% static "js/bower_components/angular-route/angular-route.min.js" %}"></script>
+
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/controllers/documents_ctrl.js" %}"></script>
+
+</head>
+<body>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+</div>
+
+{% verbatim %}
+<form ng-controller="DocumentCtrl">
+    <div class="form-group" ng-repeat="document in documents">
+        <label for="message-text" class="control-label">ID:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.id"
+                  style="width: 570px"></textarea>
+
+        <label for="message-text" class="control-label">author:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.author"
+                  style="width: 570px"></textarea>
+
+        <label for="message-text" class="control-label">private_number:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.private_number"
+                  style="width: 570px"></textarea>
+
+        <label for="message-text" class="control-label">summary:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.summary"
+                  style="width: 570px"></textarea>
+
+        <label for="message-text" class="control-label">date:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.date"
+                  style="width: 570px"></textarea>
+
+        <label for="message-text" class="control-label">file:</label>
+        <textarea class="form-control" id="message-text" ng-model="document.file"
+                  style="width: 570px"></textarea>
+        <label>NEXT:</label>
+    </div>
+
+</form>
+<button type="button" data-dismiss="modal" class="btn btn-primary"
+        ng-click="create_issue()">update</button>
+{% endverbatim %}
+{#    <div class="input-group">#}
+{#      <span class="input-group-addon" id="basic-addon1">@</span>#}
+{#      <input type="text" class="form-control" placeholder="Username" #}
+{#             aria-describedby="basic-addon1">#}
+{#    </div>#}
+
+{#<div class="body"></div>#}
+{#<div class="grad"></div>#}
+{#sad#}
+{#<div class="login">#}
+{#    <div>MAIN IN:</div>#}
+{#    <form action="/" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ error }}#}
+{#        <input type="text" placeholder="Email" name="email"><br>#}
+{#        <input type="password" placeholder="Password" name="password"><br>#}
+{#        <input type="button" value="Enter" onClick="this.parentNode.submit(); return false;">#}
+{#    </form>#}
+{#</div>#}
+
+</body>
+</html>

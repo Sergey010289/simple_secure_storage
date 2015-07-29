@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static "css/login.css" %}" />
+
+</head>
+<body>
+
+<div class="body"></div>
+<div class="grad"></div>
+
+<div class="login">
+    <div>SIGN IN:</div>
+    <form action="/" method="post">
+        {% csrf_token %}
+        {{ error }}
+        <input type="text" placeholder="Email" name="email"><br>
+        <input type="password" placeholder="Password" name="password"><br>
+        <input type="button" value="Enter" onClick="this.parentNode.submit(); return false;">
+    </form>
+</div>
+
+</body>
+</html>
